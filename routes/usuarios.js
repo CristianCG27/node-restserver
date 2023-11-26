@@ -32,6 +32,8 @@ router.put(
 );
 
 router.post(
+
+  
   "/",
   [
     check("nombre", "El nombre es obligatorio").not().isEmpty(),

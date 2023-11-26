@@ -86,5 +86,7 @@ module.exports = {
   usuariosPost,
   usuariosPut,
   usuariosPatch,
-  usuariosDelete,
+  usuariosDelete
+
 };
+
