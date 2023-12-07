@@ -19,7 +19,7 @@ const usuariosGet = async (req = request, res = response) => {
     Usuario.find(query)
       .skip(Number(desde))
       .limit(Number(limite))
-  ])
+  ]);
 
   res.json({
     total,
@@ -39,7 +39,7 @@ const usuariosPost = async (req, res = response) => {
   await usuario.save();
 
   res.json({
-    usuario,
+    usuario
   });
 };
 
@@ -74,11 +74,10 @@ const usuariosDelete = async (req, res = response) => {
   // const usuario = await Usuario.findByIdAndDelete(id);
 
   const usuario = await Usuario.findByIdAndUpdate( id, { estado : false});
-  const usuarioAuth = req.usuario;  
+  //const usuarioAuth = req.usuario;  
 
   res.json({
-    usuario,
-    usuarioAuth
+    usuario
   });
 };
 

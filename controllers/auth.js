@@ -1,6 +1,8 @@
 const { response } = require("express");
-const Usuario = require('../models/usuario');
 const bcryptjs = require('bcryptjs');
+
+const Usuario = require('../models/usuario');
+
 const { generarJWT } = require("../helpers/generar-jwt");
 
 const login = async(req, res = response) => {
@@ -21,7 +23,7 @@ const login = async(req, res = response) => {
     //Verificar si usuario está activo
     if (!usuario.estado) {
         return res.status(400).json({
-            msg: 'Usuario/constraseña no son correctos - esatdo-false'
+            msg: 'Usuario/constraseña no son correctos - estado-false'
         });
         
     }
@@ -41,8 +43,6 @@ const login = async(req, res = response) => {
 
     const token = await generarJWT(usuario.id);
 
-
-
     res.json({
       msg: "Login OK",
       usuario,
@@ -56,8 +56,8 @@ const login = async(req, res = response) => {
       msg: "Algo salió mal",
     });
   }
-};
+}
 
 module.exports = {
-  login,
-};
+  login
+}
